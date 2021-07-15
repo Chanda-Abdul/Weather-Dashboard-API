@@ -15,27 +15,33 @@
   </head>
   <body>
     <div class="container-fluid">
-      Here is today's weather in your favorite cities
+      <form>
+        <div class="mb-3">
+          <label for="searchForCity"
+            >Which city would you like to add weather information for?</label
+          >
+          <input type="text" class="form-control" placeholder="Enter a city" />
+          <div id="searchHelp" class="form-text">
+            Please enter the city's name in the box above.
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary">Seach!</button>
+      </form>
+      <div class="container-lg display">
+        Here is today's weather in your favorite cities
+
+        <div class="container-md">
+          <ul>
+            <li class="name">
+              <h2>City 1</h2>
+            </li>
+            <li class="day">date</li>
+            <li class="temperature">Temperature</li>
+            <li class="desc">Weather Description</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="container-md">
-      <li>
-        <ul>
-          City 1
-        </ul>
-        <ul>
-          City 2
-        </ul>
-        <ul>
-          City 3
-        </ul>
-        <ul>
-          City 4
-        </ul>
-        <ul>
-          City 5
-        </ul>
-      </li>
-    </div>
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
