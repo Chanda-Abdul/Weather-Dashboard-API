@@ -11,6 +11,9 @@ AS A traveler
 I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
 ```
+
+## Mock-up
+[Mock-up](https://ucarecdn.com/5b0ef48a-550d-4938-9ac2-3ab39a5ce347/)
  
 ## Acceptance Criteria
 

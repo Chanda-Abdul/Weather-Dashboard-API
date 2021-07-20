@@ -2,10 +2,66 @@
     box-sizing: border-box;
     text-align: center;
 }
+
+.navbar {
+    
+    color: #fff;
+    
+}
+
+html { 
+    background: url(https://images.unsplash.com/photo-1526326313238-6d7584c46fd5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+.search-display {
+    float: left;
+    text-align: center;
+}
+
+.search-display > * {
+    margin: 0.2em 0;
+    padding: 0.2em 0;
+}
+
+
+.weather-display {
+    float: right;
+}
+
+/* .weather-display > * {
+    margin: 0.2em 0;
+    padding: 0.2em 0;
+} */
+
+
+.form-control{
+    width: 85%;
+    float: left;
+}
+.btn {
+    width: 15%;
+}
+
+.label {
+    text-align: left;
+    padding: 0 0 0 1em;
+    margin: 1%;
+}
+
 li {
     list-style: none;
 }
-
+.card {
+    /* padding: 0 0 0 1em; */
+    margin-top: 1%;
+}
+.five-day-forecast {
+    margin: auto;
+}
 input {
     width: 50px;
 }
