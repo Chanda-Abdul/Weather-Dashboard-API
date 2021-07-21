@@ -31,7 +31,7 @@
     <div class="container">
       <!-- city search & floatleft -->
       <!-- city search -->
-      <div class="col-4 search-display">
+      <div class="col-3 search-display">
         <form class="row g-2">
           <div class="row-1">
             <label for="searchForCity" class="form-label"
@@ -62,152 +62,53 @@
      
 
       <!-- weather display right -->
-      <div class="col-7 weather-display">
-        <div class="today-weather-headline">
+      <div class="col-8 weather-display">
+        <div class="today-weather-headline hidden">
             <div class="row-1">
-                <label for="searchForCity" class="form-label"
-                  ><h2>Current Weather</h2></label>
+                <h2 class="title">Current Weather</h2>
               </div>
 
           <!-- current weather card -->
           <div class="card">
             <div class="card-header row-1">
-              <span class="today-city">City 1</span>
-              <span class="today-date">date</span>
-              <span class="today-weather-icon">weather icon</span>
+                <h2><span class="today-city"> </span>
+                    <span class="today-date"> </span>
+                    <span class="today-weather-icon"> </span>
+                </h2>
+              
             </div>
             <div class="card-body">
+                
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  <p>Temperature: <span class="day-temperature">100</span>°F</p>
+                <li class="list-group-item" id="details">
+                  <p>Temperature: <span class="day-temperature"> </span> °F</p>
                 </li>
                 <li class="list-group-item">
-                  <p>Humidity: <span class="day-humidity">100</span>%</p>
+                  <p>Humidity: <span class="day-humidity"> </span>%</p>
                 </li>
 
                 <li class="list-group-item">
-                  <p>Wind Speed: <span class="day-wind">10.0</span>MPH</p>
+                  <p>Wind Speed: <span class="day-wind"> </span> MPH</p>
                 </li>
                 <li class="list-group-item">
-                  <p>UV Index: <span class="day-humidity">10.0</span>%</p>
+                  <p>UV Index: <span class="day-uv"> </span>%</p>
                 </li>
               </ul>
+           
             </div>
           </div>
         </div>
         <!-- current weather cards -->
-        <h2>5-day Forecast:</h2>
+        <div class="forecast hidden">
+        <h2 class="title">5-day Forecast:</h2>
         <div class="weather-forecast row">
-            <!-- card 1-->
-          <div class="card five-day-forecast col-2">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  <h5 class="card-title">Date</h5>
-                </li>
-                <li class="list-group-item">
-                  <p class="day-weather-icon">weather icon</p>
-                </li>
-                <li class="list-group-item">
-                  <p>Temperature: <span class="day-temperature">100</span>°F</p>
-                </li>
-                <li class="list-group-item">
-                  <p>Humidity: <span class="day-humidity">100</span>%</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-           <!-- card 2 -->
+            
            
-           <div class="card five-day-forecast col-2">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  <h5 class="card-title">Date</h5>
-                </li>
-                <li class="list-group-item">
-                  <p class="day-weather-icon">weather icon</p>
-                </li>
-                <li class="list-group-item">
-                  <p>Temperature: <span class="day-temperature">100</span>°F</p>
-                </li>
-                <li class="list-group-item">
-                  <p>Humidity: <span class="day-humidity">100</span>%</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- card 3 -->
-           
-<div class="card five-day-forecast col-2">
-    <img src="..." class="card-img-top" alt="..." />
-    <div class="card-body">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <h5 class="card-title">Date</h5>
-        </li>
-        <li class="list-group-item">
-          <p class="day-weather-icon">weather icon</p>
-        </li>
-        <li class="list-group-item">
-          <p>Temperature: <span class="day-temperature">100</span>°F</p>
-        </li>
-        <li class="list-group-item">
-          <p>Humidity: <span class="day-humidity">100</span>%</p>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!-- card 4 -->
-           
-<div class="card five-day-forecast col-2">
-    <img src="..." class="card-img-top" alt="..." />
-    <div class="card-body">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <h5 class="card-title">Date</h5>
-        </li>
-        <li class="list-group-item">
-          <p class="day-weather-icon">weather icon</p>
-        </li>
-        <li class="list-group-item">
-          <p>Temperature: <span class="day-temperature">100</span>°F</p>
-        </li>
-        <li class="list-group-item">
-          <p>Humidity: <span class="day-humidity">100</span>%</p>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!-- card 5 -->
-           
-<div class="card five-day-forecast col-2">
-    <img src="..." class="card-img-top" alt="..." />
-    <div class="card-body">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <h5 class="card-title">Date</h5>
-        </li>
-        <li class="list-group-item">
-          <p class="day-weather-icon">weather icon</p>
-        </li>
-        <li class="list-group-item">
-          <p>Temperature: <span class="day-temperature">100</span>°F</p>
-        </li>
-        <li class="list-group-item">
-          <p>Humidity: <span class="day-humidity">100</span>%</p>
-        </li>
-      </ul>
-    </div>
-  </div>
-
 <!-- end Forecast cards -->
 
 
         </div>
+    </div>
 
   
 </div>
