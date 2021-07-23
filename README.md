@@ -14,6 +14,9 @@ SO THAT I can plan a trip accordingly
 
 ## Mock-up
 [Mock-up](https://ucarecdn.com/5b0ef48a-550d-4938-9ac2-3ab39a5ce347/)
+
+## Deployed App
+[Weather Dashboard](https://pensive-payne-78e3c8.netlify.app/)
  
 ## Acceptance Criteria
 
