@@ -38,10 +38,19 @@ GIVEN a weather dashboard with form inputs
 - [x] WHEN I view future weather conditions for that city
   - [x] THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
 - [ ] WHEN I click on a city in the search history
-
   - [ ] THEN I am again presented with current and future conditions for that city
 
-  ## Future updates
+## Programmer
+Chanda Abdul
 
-  - [ ] Add function to clear entire city list
-  - [ ] Add trash icon to delete city
+## Technologies Used
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+    - Fetch API
+- [OpenWeather API](https://openweathermap.org/api) 
+## Future updates
+
+- [ ] Add function to clear entire city list
+- [ ] Add trash icon to delete city
