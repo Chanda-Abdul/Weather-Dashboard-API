@@ -64,7 +64,7 @@
 
     <!-- weather display right -->
     <div class="col-8 weather-display">
-      <div class="today-weather-headline hidden">
+      <div class="today-weather-headline">
         <div class="row-1">
           <h2 class="title">Current Weather</h2>
         </div>
@@ -81,7 +81,7 @@
           <div class="card-body">
             <ul class="list-group list-group-flush">
               <li class="list-group-item" id="details">
-                <p>Temperature: <span class="day-temperature"> </span> °F</p>
+                <p>Temperature: <span class="day-temperature"> </span> &#8457;</p>
               </li>
               <li class="list-group-item">
                 <p>Humidity: <span class="day-humidity"> </span>%</p>
@@ -91,21 +91,20 @@
                 <p>Wind Speed: <span class="day-wind"> </span> MPH</p>
               </li>
               <li class="list-group-item">
-                <p>UV Index: <span class="day-uv"> </span></p>
+                <p>UV Index: <span class="day-uv badge"> </span></p>
               </li>
             </ul>
           </div>
         </div>
       </div>
       <!-- current weather cards -->
-      <div class="forecast hidden">
+      <div class="forecast">
         <h2 class="title">5-day Forecast:</h2>
         <div class="weather-forecast row">
           <!-- end Forecast cards -->
         </div>
       </div>
     </div>
-    
 
     <script type="text/javascript" src="fetch.js"></script>
     <script type="text/javascript" src="populateUI.js"></script>
