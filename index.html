@@ -23,7 +23,7 @@
     <nav class="navbar bg-dark">
       <div class="container-fluid">
         <span class="navbar-brand mb-0">
-            <h1>Weather Dashboard</h1>
+          <h1>Weather Dashboard</h1>
         </span>
       </div>
     </nav>
@@ -35,7 +35,8 @@
         <form class="row g-2">
           <div class="row-1">
             <label for="searchForCity" class="form-label"
-              ><h2>Search for a city:</h2></label>
+              ><h2>Search for a city:</h2></label
+            >
           </div>
           <div class="row-1">
             <input
@@ -48,7 +49,7 @@
           </div>
         </form>
         <!-- city display -->
-      
+
         <div class="search-display col-12">
           <ul class="list-group city-list">
             <li class="list-group-item">An item</li>
@@ -59,64 +60,55 @@
           </ul>
         </div>
       </div>
-     
+    </div>
 
-      <!-- weather display right -->
-      <div class="col-8 weather-display">
-        <div class="today-weather-headline hidden">
-            <div class="row-1">
-                <h2 class="title">Current Weather</h2>
-              </div>
+    <!-- weather display right -->
+    <div class="col-8 weather-display">
+      <div class="today-weather-headline hidden">
+        <div class="row-1">
+          <h2 class="title">Current Weather</h2>
+        </div>
 
-          <!-- current weather card -->
-          <div class="card">
-            <div class="card-header row-1">
-                <h2><span class="today-city"> </span>
-                    <span class="today-date"> </span>
-                    <span class="today-weather-icon"> </span>
-                </h2>
-              
-            </div>
-            <div class="card-body">
-                
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="details">
-                  <p>Temperature: <span class="day-temperature"> </span> °F</p>
-                </li>
-                <li class="list-group-item">
-                  <p>Humidity: <span class="day-humidity"> </span>%</p>
-                </li>
+        <!-- current weather card -->
+        <div class="card">
+          <div class="card-header row-1">
+            <h2>
+              <span class="today-city"> </span>
+              <span class="today-date"> </span>
+              <span class="today-weather-icon"> </span>
+            </h2>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" id="details">
+                <p>Temperature: <span class="day-temperature"> </span> °F</p>
+              </li>
+              <li class="list-group-item">
+                <p>Humidity: <span class="day-humidity"> </span>%</p>
+              </li>
 
-                <li class="list-group-item">
-                  <p>Wind Speed: <span class="day-wind"> </span> MPH</p>
-                </li>
-                <li class="list-group-item">
-                  <p>UV Index: <span class="day-uv"> </span></p>
-                </li>
-              </ul>
-           
-            </div>
+              <li class="list-group-item">
+                <p>Wind Speed: <span class="day-wind"> </span> MPH</p>
+              </li>
+              <li class="list-group-item">
+                <p>UV Index: <span class="day-uv"> </span></p>
+              </li>
+            </ul>
           </div>
         </div>
-        <!-- current weather cards -->
-        <div class="forecast hidden">
+      </div>
+      <!-- current weather cards -->
+      <div class="forecast hidden">
         <h2 class="title">5-day Forecast:</h2>
         <div class="weather-forecast row">
-            
-           
-<!-- end Forecast cards -->
-
-
+          <!-- end Forecast cards -->
         </div>
-    </div>
-
-  
-</div>
-
-        
       </div>
     </div>
+    
 
+    <script type="text/javascript" src="fetch.js"></script>
+    <script type="text/javascript" src="populateUI.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
