@@ -1,43 +1,42 @@
 * {
-    /* box-sizing: border-box; */
-    /* text-align: center; */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar {
-    
-    color: #fff;
-    
+  color: #fff;
 }
 .hidden {
-    display: none;
+  display: none;
 }
 
-html { 
-    background: url(https://images.unsplash.com/photo-1526326313238-6d7584c46fd5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
+html {
+  background: url(https://images.unsplash.com/photo-1509218541462-aa68e407d0ca?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE5fHxzdW5ueSUyMGRheSUyMHdlYXRoZXIlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
-  .title {
-      text-align: center;
-  }
+.title {
+  text-align: center;
+}
 
 .search-display {
-    float: left;
-    text-align: center;
-    /* margin-left: 0.1em; */
+  float: left;
+  text-align: center;
 }
 
 .search-display > * {
-    margin: 0.2em 0;
-    padding: 0.2em 0;
+  margin: 0.2em 0;
+  padding: 0.2em 0;
 }
 
-
 .weather-display {
-    float: right;
+  float: right;
+  display: hidden;
 }
 
 /* .weather-display > * {
@@ -45,48 +44,47 @@ html {
     padding: 0.2em 0;
 } */
 
-
-.form-control{
-    width: 85%;
-    float: left;
+.form-control {
+  width: 85%;
+  float: left;
 }
 .btn {
-    width: 15%;
+  width: 15%;
 }
 
 .label {
-    text-align: left;
-    padding: 0 0 0 1em;
-    margin: 1%;
+  text-align: left;
+  padding: 0 0 0 1em;
+  margin: 1%;
 }
 
 li {
-    list-style: none;
-    text-align: left;
+  list-style: none;
+  text-align: left;
 }
 .card {
-    /* padding: 0 0 0 1em; */
-    margin-top: 1%;
-    text-align: center;
+  /* padding: 0 0 0 1em; */
+  margin-top: 1%;
+  text-align: center;
 }
 .card-title {
-    margin: .25em;
-    font-size: medium;
+  margin: 0.25em;
+  font-size: medium;
 }
 .card-img-icon {
-    width: 60%;
+  width: 60%;
 }
 .list-group-item {
-    text-align: left;
+  text-align: left;
 }
 .five-day-forecast {
-    margin: auto;
+  margin: auto;
 }
 .forecast-details {
-    /* padding: 0.1em;*/
-    margin: 0.1em; 
-    /* font-size: .75em; */
+  /* padding: 0.1em;*/
+  margin: 0.1em;
+  /* font-size: .75em; */
 }
 input {
-    width: 50px;
+  width: 50px;
 }

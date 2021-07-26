@@ -8,11 +8,20 @@ const populateUICityListLeft = cityWeatherList => {
 
   cityList.innerHTML = cityWeatherList
     .map(city => {
+       
       //TO-DO => add onClick for each city to display that city's weather
-      return `<li class="list-group-item">${city.city}</li>`;
+      return `<li class="list-group-item" onclick="updateWeather(event)">${city.city}</li>`;
+      
     })
     .join("");
+    
 };
+
+
+const updateWeather = (event) => {
+    let city = event.currentTarget.innerHTML
+    console.log(city)
+}
 const populateUICurrentWeatherRight = (
   name,
   date,
@@ -40,18 +49,28 @@ const populateUICurrentWeatherRight = (
   currentCityWind.innerHTML = Math.round(wind);
   currentCityUV.innerHTML = Number(uv);
 
-  //A UV Index reading of 0 to 2 means low danger from the sun's UV rays for the average person.
-  //A UV Index reading of 3 to 5 means moderate risk of harm from unprotected sun exposure.
-  // A UV Index reading of 6 to 7 means high risk of harm from unprotected sun exposure. Protection against skin and eye damage is needed.
 
-  if (uv <= 2) {
-    currentCityUV.classList.add("bg-success");
-  } else if (uv >= 6) {
-    currentCityUV.classList.add("bg-danger");
-  } else {
-    currentCityUV.classList.add("bg-warning");
-    currentCityUV.classList.add("text-dark");
+  const updateUVBadgeColor = (uv) => {
+    console.log(uv)
+    
+    if (uv <= 2) {
+        // A UV Index reading of 0 to 2 means low danger from the sun's UV rays for the average person.
+        
+        currentCityUV.className = "day-uv badge bg-success";
+       
+      } else if (uv >= 6) {
+        
+        // A UV Index reading of 3 to 5 means moderate risk of harm from unprotected sun exposure.
+        currentCityUV.className = "day-uv badge bg-danger"
+       
+      } else {
+        // A UV Index reading of 6 to 7 means high risk of harm from unprotected sun exposure. Protection against skin and eye damage is needed.
+        currentCityUV.className = "day-uv text-dark bg-warning";
+      }
   }
+  updateUVBadgeColor(uv)
+
+  
 };
 
 const populateUIForecastRight = forecast => {
