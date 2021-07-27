@@ -1,3 +1,5 @@
+"use strict";
+
 //add classes
 const weather = new FetchWeather();
 const uv = new FetchUV();
@@ -6,15 +8,20 @@ const uv = new FetchUV();
 const cityWeatherList =
   JSON.parse(localStorage.getItem("cityWeatherList")) || [];
 
-  console.log(cityWeatherList)
-
-//populate ui if local storage is not empty
-let cityList = document.querySelector(".city-list");
-let weatherDisplay = document.querySelector(".today-weather-headline");
-
+//populate ui with localStorage
 const updateUI = cityWeatherList => {
-    console.log(cityWeatherList)
-  if (cityWeatherList) {
+  if (cityWeatherList.length > 0) {
+    function removeHidden() {
+      // Get all the elements that match the selector into an Array
+      var hidden = Array.prototype.slice.call(
+        document.querySelectorAll(".hidden")
+      );
+      hidden.forEach(function (item) {
+        item.classList.remove("hidden");
+      });
+    }
+
+    removeHidden();
     populateUI(
       cityWeatherList[0].city,
       cityWeatherList[0].date,
@@ -25,15 +32,17 @@ const updateUI = cityWeatherList => {
       cityWeatherList[0].uv,
       cityWeatherList[0].forecast
     );
-    cityList.parentElement.classList.remove("hidden");
-    weatherDisplay.parentElement.classList.remove("hidden");
-
     populateUICityListLeft(cityWeatherList);
   } else {
-    // cityList.parentElement.classList.add("hidden");
-    // weatherDisplay.parentElement.classList.add("hidden");
+    localStorage.setItem("cityWeatherList", JSON.stringify(cityWeatherList));
+    window.location.assign("/");
+    cityList.parentElement.classList.add("hidden");
+    weatherDisplay.parentElement.classList.add("hidden");
   }
 };
+
+let cityList = document.querySelector(".city-list");
+let weatherDisplay = document.querySelector(".today-weather-headline");
 
 const saveCityToLocalStorage = (
   city,
@@ -46,7 +55,6 @@ const saveCityToLocalStorage = (
   forecast
 ) => {
   const cityWeather = {
-    // index,
     city: city,
     date: date,
     icon: icon,
@@ -65,11 +73,12 @@ const saveCityToLocalStorage = (
   window.location.assign("/");
 };
 
-//add event listeners
+//add search button event listener
 const inputValue = document.querySelector(".form-control");
 const button = document.querySelector(".btn");
 
-button.addEventListener("click", () => {
+button.addEventListener("click", event => {
+  event.preventDefault();
   const currentCityValue = inputValue.value;
 
   weather.getWeather(currentCityValue).then(data => {
@@ -82,11 +91,15 @@ button.addEventListener("click", () => {
     let currentTempValue = Math.round(data.list["0"].main.temp);
     let currentHumidityValue = data.list["0"].main.humidity;
     let currentWindValue = data.list["0"].wind.speed;
-    let currentForecast = data.list.slice(0, 5);
+    let currentForecast = [];
+    for (let i = 0; i < data.list.length; i++) {
+      if (i === 0 || i % 8 === 0) {
+        currentForecast.push(data.list[i]);
+      }
+    }
 
     uv.getUV(currentLatitude, currentLongitude).then(data => {
       let currentUVValue = data.current.uvi;
-
       populateUI(
         currentNameValue,
         currentDateValue,
@@ -112,8 +125,17 @@ button.addEventListener("click", () => {
   });
 });
 
+const updateWeather = cityName => {
+  let newCity = cityName;
+  let index = cityWeatherList.findIndex(i => i.city === newCity);
+  updateCityWeatherList(index);
+};
+
+const updateCityWeatherList = index => {
+  let temp = cityWeatherList[0];
+  cityWeatherList[0] = cityWeatherList[index];
+  cityWeatherList[index] = temp;
+  updateUI(cityWeatherList);
+};
 
 updateUI(cityWeatherList);
-
-
-// console.log(cityWeatherList.indexOf("Oakland"));

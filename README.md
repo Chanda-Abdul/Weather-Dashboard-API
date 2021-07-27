@@ -37,8 +37,8 @@ GIVEN a weather dashboard with form inputs
     - or severe(A UV Index reading of 6 to 7 means high risk of harm from unprotected sun exposure. Protection against skin and eye damage is needed.)
 - [x] WHEN I view future weather conditions for that city
   - [x] THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-- [ ] WHEN I click on a city in the search history
-  - [ ] THEN I am again presented with current and future conditions for that city
+- [x] WHEN I click on a city in the search history
+  - [x] THEN I am again presented with current and future conditions for that city
 
 ## Programmer
 Chanda Abdul
@@ -50,6 +50,11 @@ Chanda Abdul
 - JavaScript
     - Fetch API
 - [OpenWeather API](https://openweathermap.org/api) 
+
+## To-do
+- [ ] Automatically Remove Duplicates from localStorage
+- [ ] circular reference issue??
+- [ ] update css stylings
 
 ## Future updates
 

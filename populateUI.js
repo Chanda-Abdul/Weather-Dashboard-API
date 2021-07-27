@@ -8,20 +8,11 @@ const populateUICityListLeft = cityWeatherList => {
 
   cityList.innerHTML = cityWeatherList
     .map(city => {
-       
-      //TO-DO => add onClick for each city to display that city's weather
-      return `<li class="list-group-item" onclick="updateWeather(event)">${city.city}</li>`;
-      
+      return `<li class="list-group-item" id="${city.city}" onclick="updateWeather(this.id)">${city.city}</li>`;
     })
     .join("");
-    
 };
 
-
-const updateWeather = (event) => {
-    let city = event.currentTarget.innerHTML
-    console.log(city)
-}
 const populateUICurrentWeatherRight = (
   name,
   date,
@@ -49,28 +40,19 @@ const populateUICurrentWeatherRight = (
   currentCityWind.innerHTML = Math.round(wind);
   currentCityUV.innerHTML = Number(uv);
 
-
-  const updateUVBadgeColor = (uv) => {
-    console.log(uv)
-    
+  const updateUVBadgeColor = uv => {
     if (uv <= 2) {
-        // A UV Index reading of 0 to 2 means low danger from the sun's UV rays for the average person.
-        
-        currentCityUV.className = "day-uv badge bg-success";
-       
-      } else if (uv >= 6) {
-        
-        // A UV Index reading of 3 to 5 means moderate risk of harm from unprotected sun exposure.
-        currentCityUV.className = "day-uv badge bg-danger"
-       
-      } else {
-        // A UV Index reading of 6 to 7 means high risk of harm from unprotected sun exposure. Protection against skin and eye damage is needed.
-        currentCityUV.className = "day-uv text-dark bg-warning";
-      }
-  }
-  updateUVBadgeColor(uv)
-
-  
+      // A UV Index reading of 0 to 2 means low danger from the sun's UV rays for the average person.
+      currentCityUV.className = "day-uv badge bg-success";
+    } else if (uv >= 6) {
+      // A UV Index reading of 3 to 5 means moderate risk of harm from unprotected sun exposure.
+      currentCityUV.className = "day-uv badge bg-danger";
+    } else {
+      // A UV Index reading of 6 to 7 means high risk of harm from unprotected sun exposure. Protection against skin and eye damage is needed.
+      currentCityUV.className = "day-uv text-dark bg-warning";
+    }
+  };
+  updateUVBadgeColor(uv);
 };
 
 const populateUIForecastRight = forecast => {
@@ -79,13 +61,11 @@ const populateUIForecastRight = forecast => {
   currentFiveDayForecast.innerHTML = `${forecast
     .map(forecast => {
       return `<div class="card five-day-forecast col-2">
-
       <h5 class="card-title">${Number(
         forecast.dt_txt.slice(0, 10).split("-")[1]
       )}/${Number(forecast.dt_txt.slice(0, 10).split("-")[2])}/${
         forecast.dt_txt.slice(0, 10).split("-")[0]
       }</h5>
-    
 <img src="http://openweathermap.org/img/w/${
         forecast.weather[0].icon
       }.png" class="card-img-icon" alt="..."/>
