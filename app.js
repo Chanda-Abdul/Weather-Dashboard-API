@@ -81,12 +81,11 @@ const saveCityToLocalStorage = (
   }
 };
 
-
 //add search button event listener
 const inputValue = document.querySelector(".form-control");
 const button = document.querySelector(".btn");
 
-button.addEventListener("click", event => {
+button.addEventListener("click", (event) => {
   event.preventDefault();
   const currentCityValue = inputValue.value;
 
@@ -130,7 +129,10 @@ button.addEventListener("click", event => {
       );
     });
     populateUICityListLeft(cityWeatherList);
-  });
+  }).catch(err => {
+    alert("Invalid city name, try again.")
+    console.log('caught it!',err);
+ });
 });
 
 const removeCity = cityToRemove => {
