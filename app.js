@@ -14,7 +14,7 @@ let weatherDisplay = document.querySelector(".weather-display");
 //populate ui with localStorage
 const updateUI = () => {
   if (cityWeatherList.length > 0) {
-    removeHidden();
+    removeHiddenClassFromHTMLElements();
     populateUI(
       cityWeatherList[0].city,
       cityWeatherList[0].date,
@@ -33,8 +33,7 @@ const updateUI = () => {
   }
 };
 
-function removeHidden() {
-  // Get all the elements that match the selector into an Array
+function removeHiddenClassFromHTMLElements() {
   const hidden = Array.prototype.slice.call(
     document.querySelectorAll(".hidden")
   );
@@ -70,6 +69,7 @@ const saveCityToLocalStorage = (
   for (let i = 0; i < cityWeatherList.length; i++) {
     if (cityWeatherList[i].city === cityWeather.city) {
       addCityToList = false;
+      alert("This city is already in your favorites list, please try again.");
     }
   }
 
@@ -83,63 +83,65 @@ const saveCityToLocalStorage = (
 
 //add search button event listener
 const inputValue = document.querySelector(".form-control");
-const button = document.querySelector(".btn");
+const submitButton = document.querySelector(".city-search-button");
 
-button.addEventListener("click", (event) => {
+submitButton.addEventListener("click", event => {
   event.preventDefault();
   const currentCityValue = inputValue.value;
 
-  weather.getWeather(currentCityValue).then(data => {
-    let currentLatitude = data.city.coord.lat;
-    let currentLongitude = data.city.coord.lon;
-    let currentNameValue = data["city"]["name"];
-    let currentDateValue = data["list"][0]["dt_txt"].slice(0, 10).split("-");
-    let currentIconValue = data["list"][0]["weather"][0]["icon"];
-    let currentTempValue = Math.round(data.list["0"].main.temp);
-    let currentHumidityValue = data.list["0"].main.humidity;
-    let currentWindValue = data.list["0"].wind.speed;
-    let currentForecast = [];
-    for (let i = 0; i < data.list.length; i++) {
-      if (i === 0 || i % 8 === 0) {
-        currentForecast.push(data.list[i]);
+  weather
+    .getWeather(currentCityValue)
+    .then(data => {
+      let currentLatitude = data.city.coord.lat;
+      let currentLongitude = data.city.coord.lon;
+      let currentNameValue = data["city"]["name"];
+      let currentDateValue = data["list"][0]["dt_txt"].slice(0, 10).split("-");
+      let currentIconValue = data["list"][0]["weather"][0]["icon"];
+      let currentTempValue = Math.round(data.list["0"].main.temp);
+      let currentHumidityValue = data.list["0"].main.humidity;
+      let currentWindValue = data.list["0"].wind.speed;
+      let currentForecast = [];
+      for (let i = 0; i < data.list.length; i++) {
+        if (i === 0 || i % 8 === 0) {
+          currentForecast.push(data.list[i]);
+        }
       }
-    }
 
-    uv.getUV(currentLatitude, currentLongitude).then(data => {
-      let currentUVValue = data.current.uvi;
-      populateUI(
-        currentNameValue,
-        currentDateValue,
-        currentIconValue,
-        currentTempValue,
-        currentHumidityValue,
-        currentWindValue,
-        currentUVValue,
-        currentForecast
-      );
-      saveCityToLocalStorage(
-        currentNameValue,
-        currentDateValue,
-        currentIconValue,
-        currentTempValue,
-        currentHumidityValue,
-        currentWindValue,
-        currentUVValue,
-        currentForecast
-      );
+      uv.getUV(currentLatitude, currentLongitude).then(data => {
+        let currentUVValue = data.current.uvi;
+        populateUI(
+          currentNameValue,
+          currentDateValue,
+          currentIconValue,
+          currentTempValue,
+          currentHumidityValue,
+          currentWindValue,
+          currentUVValue,
+          currentForecast
+        );
+        saveCityToLocalStorage(
+          currentNameValue,
+          currentDateValue,
+          currentIconValue,
+          currentTempValue,
+          currentHumidityValue,
+          currentWindValue,
+          currentUVValue,
+          currentForecast
+        );
+      });
+      populateUICityListLeft(cityWeatherList);
+    })
+    .catch(err => {
+      alert("Invalid city name, try again.");
     });
-    populateUICityListLeft(cityWeatherList);
-  }).catch(err => {
-    alert("Invalid city name, try again.")
-    console.log('caught it!',err);
- });
 });
 
 const removeCity = cityToRemove => {
   let index = cityWeatherList.findIndex(i => i.city === cityToRemove);
-  cityWeatherList.splice(index, 1)
+  cityWeatherList.splice(index, 1);
   updateUI(cityWeatherList);
-}
+};
 
 const updateWeather = cityToUpdate => {
   let index = cityWeatherList.findIndex(i => i.city === cityToUpdate);
@@ -149,8 +151,8 @@ const updateWeather = cityToUpdate => {
 };
 
 const deleteCityList = () => {
- cityWeatherList.length = 0
- updateUI(cityWeatherList)
-}
+  cityWeatherList.length = 0;
+  updateUI(cityWeatherList);
+};
 
 updateUI();

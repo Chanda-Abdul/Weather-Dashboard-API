@@ -13,10 +13,6 @@ html {
   background-size: cover;
 }
 
-.title {
-  text-align: center;
-}
-
 .hidden {
   display: none;
 }
@@ -24,6 +20,7 @@ html {
 .search-input {
   float: left;
   text-align: center;
+  margin: 3em 0;
 }
 
 .search-input > * {
@@ -36,52 +33,50 @@ html {
   display: hidden;
 }
 
-/* .weather-display > * {
-    margin: 0.2em 0;
-    padding: 0.2em 0;
-} */
-
 .form-control {
-  width: 85%;
+  width: 80%;
   float: left;
 }
-.btn {
-  width: 15%;
+
+.city-name {
+  width: 80%;
+  text-align: justify;
+  float: left;
+  font-weight: bold;
 }
 
 .label {
   text-align: left;
-  padding: 0 0 0 1em;
-  margin: 1%;
 }
 
-li {
-  list-style: none;
-  /* text-align: left; */
-}
 .card {
-  /* padding: 0 0 0 1em; */
-  margin-top: 1%;
-  text-align: center;
+  margin: 3.75em 0 2em 0;
 }
-.card-title {
-  margin: 0.25em;
-  font-size: medium;
+.card-header {
+  padding: 1em 0 0 2em;
+  text-align: left;
 }
 .card-img-icon {
   width: 60%;
 }
+
+.today-weather-icon {
+  float: right;
+  margin: 1em 1em 0 0;
+}
+
 .list-group-item {
   text-align: left;
 }
 .five-day-forecast {
   margin: auto;
+  padding: 0;
 }
 .forecast-details {
-  /* padding: 0.1em;*/
-  margin: 0.1em;
-  /* font-size: .75em; */
+  text-align: justify;
 }
-input {
-  width: 50px;
+
+.forecast-card-header {
+  padding: 0.5em 0 0.25em 1.25em;
+  text-align: justify;
 }

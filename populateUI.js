@@ -11,13 +11,18 @@ const populateUICityListLeft = cityWeatherList => {
   </ul>
   ${cityWeatherList
     .map(city => {
-      return `<li class="list-group-item"><h6 id="${city.city}" onclick="updateWeather(this.id)">${city.city}</h6><i class="fas fa-trash" id="${city.city}" onclick="removeCity(this.id)"></i></li>`;
+      return `<li class="list-group-item">
+      <p id="${city.city}" class="city-name" onclick="updateWeather(this.id)">
+      ${city.city}</p>
+      
+      <i class="bi-trash" id="${city.city}" onclick="removeCity(this.id)"></i> 
+      </li>`;
     })
-    .join("")
-  }
-  <button type="button" class="btn btn-secondary" onclick="deleteCityList()">
-    Remove All <i class="fas fa-trash"></i>
-  </button>`
+    .join("")}
+
+  <button type="button" class="btn btn-primary container-fluid" onclick="deleteCityList()">
+    Remove All <i class="bi-trash"></i>
+  </button>`;
 };
 
 const populateUICurrentWeatherRight = (
@@ -38,11 +43,11 @@ const populateUICurrentWeatherRight = (
   let currentCityUV = document.querySelector(".day-uv");
 
   currentCityName.innerHTML = name;
-  currentCityDate.innerHTML = `(${Number(date[1])}/${Number(date[2])}/${
+  currentCityDate.innerHTML = `${months[Number(date[1])]} ${Number(date[2])}, ${
     date[0]
-  })`;
-  currentCityIcon.innerHTML = `<img src=\"http://openweathermap.org/img/w/${icon}.png">`;
-  currentCityTemp.innerHTML = temp;
+  }`;
+  currentCityIcon.innerHTML = `<img src=\"http://openweathermap.org/img/w/${icon}.png" alt="weather-icon" width="75em">`;
+  currentCityTemp.innerHTML = `${temp} &#8457;`;
   currentCityHumidity.innerHTML = humidity;
   currentCityWind.innerHTML = Math.round(wind);
   currentCityUV.innerHTML = Number(uv);
@@ -56,7 +61,7 @@ const populateUICurrentWeatherRight = (
       currentCityUV.className = "day-uv badge bg-danger";
     } else {
       // A UV Index reading of 6 to 7 means high risk of harm from unprotected sun exposure. Protection against skin and eye damage is needed.
-      currentCityUV.className = "day-uv text-dark bg-warning";
+      currentCityUV.className = "day-uv bg-warning text-dark";
     }
   };
   updateUVBadgeColor(uv);
@@ -68,25 +73,26 @@ const populateUIForecastRight = forecast => {
   currentFiveDayForecast.innerHTML = `${forecast
     .map(forecast => {
       return `<div class="card five-day-forecast col-2">
-      <h5 class="card-title">${Number(
-        forecast.dt_txt.slice(0, 10).split("-")[1]
-      )}/${Number(forecast.dt_txt.slice(0, 10).split("-")[2])}/${
-        forecast.dt_txt.slice(0, 10).split("-")[0]
-      }</h5>
+      <h5 class="card-header forecast-card-header">${
+        months[Number(forecast.dt_txt.slice(0, 10).split("-")[1])]
+      } ${Number(forecast.dt_txt.slice(0, 10).split("-")[2])}
+     
+      </h5>
+
+<div class="card-body">
 <img src="http://openweathermap.org/img/w/${
         forecast.weather[0].icon
-      }.png" class="card-img-icon" alt="..."/>
-<div class="card-body">
+      }.png" class="card-img-icon" alt="forecast-weather-icon-${forecast.weather[0].icon}"/>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
-      <p class="forecast-details">Temp: <span class="day-temperature">${Math.round(
+      <p class="forecast-details">Temp:<h3> <span class="day-temperature">${Math.round(
         forecast.main.temp
-      )}</span>&#8457;</p>
+      )}</span>&#8457;</h3></p>
     </li>
     <li class="list-group-item">
-      <p>Humidity: <span class="day-humidity">${
+      <p>Humidity: <h3><span class="day-humidity">${
         forecast.main.humidity
-      }</span>%</p>
+      }</span>%</h3></p>
     </li>
   </ul>
 </div>
@@ -94,3 +100,19 @@ const populateUIForecastRight = forecast => {
     })
     .join("")}`;
 };
+
+const months = [
+  null,
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
