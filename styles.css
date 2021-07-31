@@ -4,14 +4,6 @@
   padding: 0;
 }
 
-
-.navbar {
-  color: #fff;
-}
-.hidden {
-  display: none;
-}
-
 html {
   background: url(https://images.unsplash.com/photo-1509218541462-aa68e407d0ca?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE5fHxzdW5ueSUyMGRheSUyMHdlYXRoZXIlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1)
     no-repeat center center fixed;
@@ -25,12 +17,16 @@ html {
   text-align: center;
 }
 
-.search-display {
+.hidden {
+  display: none;
+}
+
+.search-input {
   float: left;
   text-align: center;
 }
 
-.search-display > * {
+.search-input > * {
   margin: 0.2em 0;
   padding: 0.2em 0;
 }

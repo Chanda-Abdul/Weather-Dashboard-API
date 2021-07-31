@@ -55,6 +55,7 @@ Chanda Abdul
 - [ ] circular reference issue??
 - [ ] search when "enter" key event
 - [ ] error alert for invalid city
+- [ ] add hidden class when UI is not populated
 - [ ] update css stylings
 
 ## Future updates

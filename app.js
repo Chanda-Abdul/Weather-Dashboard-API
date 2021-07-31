@@ -8,19 +8,12 @@ const uv = new FetchUV();
 const cityWeatherList =
   JSON.parse(localStorage.getItem("cityWeatherList")) || [];
 
+let cityList = document.querySelector(".search-display");
+let weatherDisplay = document.querySelector(".today-weather-headline");
+
 //populate ui with localStorage
 const updateUI = cityWeatherList => {
   if (cityWeatherList.length > 0) {
-    function removeHidden() {
-      // Get all the elements that match the selector into an Array
-      var hidden = Array.prototype.slice.call(
-        document.querySelectorAll(".hidden")
-      );
-      hidden.forEach(function (item) {
-        item.classList.remove("hidden");
-      });
-    }
-
     removeHidden();
     populateUI(
       cityWeatherList[0].city,
@@ -41,8 +34,15 @@ const updateUI = cityWeatherList => {
   }
 };
 
-let cityList = document.querySelector(".city-list");
-let weatherDisplay = document.querySelector(".today-weather-headline");
+function removeHidden() {
+  // Get all the elements that match the selector into an Array
+  const hidden = Array.prototype.slice.call(
+    document.querySelectorAll(".hidden")
+  );
+  hidden.forEach(function (item) {
+    item.classList.remove("hidden");
+  });
+}
 
 const saveCityToLocalStorage = (
   city,
@@ -142,9 +142,8 @@ const updateWeather = cityName => {
 };
 
 const updateCityWeatherList = index => {
-  let temp = cityWeatherList[0];
-  cityWeatherList[0] = cityWeatherList[index];
-  cityWeatherList[index] = temp;
+  let updatedCity = cityWeatherList.splice(index, 1)[0];
+  cityWeatherList.unshift(updatedCity);
   updateUI(cityWeatherList);
 };
 

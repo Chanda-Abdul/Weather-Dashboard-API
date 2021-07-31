@@ -20,17 +20,17 @@
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar bg-dark">
-      <div class="container-fluid">
-        <span class="navbar-brand mb-0">
+    <nav class="navbar bg-dark text-light">
+      <div class="container-fluid justify-content-center">
+        <!-- <span class="navbar-brand mb-0"> -->
           <h1>Weather Dashboard</h1>
         </span>
       </div>
     </nav>
-    <div class="container">
+    <div class="container-sm">
       <!-- city search & floatleft -->
       <!-- city search -->
-      <div class="col-2 search-display">
+      <div class="col-2 search-input">
         <form class="row g-1">
           <div class="row-1">
             <label for="searchForCity" class="form-label"
@@ -48,23 +48,18 @@
           </div>
         </form>
         <!-- city display -->
-        <div class="search-display col-12">
+        <div class="search-display container-fluid hidden">
           <ul class="list-group city-list">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
           </ul>
-          <button type="button" class="btn btn-secondary" onclick="updateWeather()">
-            <i class="fas fa-trash"></i>
+          <button type="button" class="btn btn-secondary" onclick="deleteCityList()">
+            Remove All <i class="fas fa-trash"></i>
           </button>
         </div>
       </div>
     </div>
     <!-- weather display right -->
     <div class="col-8 weather-display">
-      <div class="today-weather-headline">
+      <div class="today-weather-headline hidden">
         <div class="row-1">
           <h2 class="title">Current Weather</h2>
         </div>
