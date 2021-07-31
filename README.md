@@ -21,6 +21,7 @@ AS A traveler
 ## Deployed App
 
 [Weather Dashboard](https://pensive-payne-78e3c8.netlify.app/)
+##
 ![](weather-screen.png)
 
 ## Acceptance Criteria
