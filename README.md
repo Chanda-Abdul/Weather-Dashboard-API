@@ -52,7 +52,6 @@ Chanda Abdul
 - [OpenWeather API](https://openweathermap.org/api) 
 
 ## To-do
-- [ ] search when "enter" key event
 - [ ] error alert for invalid city
 - [ ] update css stylings
 

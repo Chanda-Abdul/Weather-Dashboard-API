@@ -91,7 +91,6 @@ button.addEventListener("click", event => {
   const currentCityValue = inputValue.value;
 
   weather.getWeather(currentCityValue).then(data => {
-    console.log(data, "app.js");
     let currentLatitude = data.city.coord.lat;
     let currentLongitude = data.city.coord.lon;
     let currentNameValue = data["city"]["name"];
