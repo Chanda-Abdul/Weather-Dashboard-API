@@ -21,8 +21,6 @@ AS A traveler
 ## Deployed App
 
 [Weather Dashboard](https://pensive-payne-78e3c8.netlify.app/)
-##
-![](weather-screen.png)
 
 ## Acceptance Criteria
 
@@ -53,5 +51,5 @@ Chanda Abdul
     - Fetch API
 - [OpenWeather API](https://openweathermap.org/api) 
 
-
+![](weather-screen.png)
 
