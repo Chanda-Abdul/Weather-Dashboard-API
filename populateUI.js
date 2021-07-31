@@ -1,16 +1,23 @@
+"use strict";
+
 const populateUI = (name, date, icon, temp, humidity, wind, uv, forecast) => {
   populateUICurrentWeatherRight(name, date, icon, temp, humidity, wind, uv);
   populateUIForecastRight(forecast);
 };
 
 const populateUICityListLeft = cityWeatherList => {
-  let cityList = document.querySelector(".city-list");
-
-  cityList.innerHTML = cityWeatherList
+  let cityList = document.querySelector(".search-display");
+  cityList.innerHTML = `<ul class="list-group city-list">
+  </ul>
+  ${cityWeatherList
     .map(city => {
-      return `<li class="list-group-item" id="${city.city}" onclick="updateWeather(this.id)">${city.city}</li>`;
+      return `<li class="list-group-item"><h6 id="${city.city}" onclick="updateWeather(this.id)">${city.city}</h6><i class="fas fa-trash" id="${city.city}" onclick="removeCity(this.id)"></i></li>`;
     })
-    .join("");
+    .join("")
+  }
+  <button type="button" class="btn btn-secondary" onclick="deleteCityList()">
+    Remove All <i class="fas fa-trash"></i>
+  </button>`
 };
 
 const populateUICurrentWeatherRight = (

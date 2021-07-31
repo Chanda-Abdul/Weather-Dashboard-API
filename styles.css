@@ -57,7 +57,7 @@ html {
 
 li {
   list-style: none;
-  text-align: left;
+  /* text-align: left; */
 }
 .card {
   /* padding: 0 0 0 1em; */

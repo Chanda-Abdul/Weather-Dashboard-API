@@ -9,10 +9,10 @@ const cityWeatherList =
   JSON.parse(localStorage.getItem("cityWeatherList")) || [];
 
 let cityList = document.querySelector(".search-display");
-let weatherDisplay = document.querySelector(".today-weather-headline");
+let weatherDisplay = document.querySelector(".weather-display");
 
 //populate ui with localStorage
-const updateUI = cityWeatherList => {
+const updateUI = () => {
   if (cityWeatherList.length > 0) {
     removeHidden();
     populateUI(
@@ -28,9 +28,8 @@ const updateUI = cityWeatherList => {
     populateUICityListLeft(cityWeatherList);
   } else {
     localStorage.setItem("cityWeatherList", JSON.stringify(cityWeatherList));
-    window.location.assign("/");
-    cityList.parentElement.classList.add("hidden");
-    weatherDisplay.parentElement.classList.add("hidden");
+    cityList.classList.add("hidden");
+    weatherDisplay.classList.add("hidden");
   }
 };
 
@@ -81,7 +80,7 @@ const saveCityToLocalStorage = (
     window.location.assign("/");
   }
 };
-console.log(cityWeatherList);
+
 
 //add search button event listener
 const inputValue = document.querySelector(".form-control");
@@ -135,16 +134,22 @@ button.addEventListener("click", event => {
   });
 });
 
-const updateWeather = cityName => {
-  let newCity = cityName;
-  let index = cityWeatherList.findIndex(i => i.city === newCity);
-  updateCityWeatherList(index);
-};
+const removeCity = cityToRemove => {
+  let index = cityWeatherList.findIndex(i => i.city === cityToRemove);
+  cityWeatherList.splice(index, 1)
+  updateUI(cityWeatherList);
+}
 
-const updateCityWeatherList = index => {
+const updateWeather = cityToUpdate => {
+  let index = cityWeatherList.findIndex(i => i.city === cityToUpdate);
   let updatedCity = cityWeatherList.splice(index, 1)[0];
   cityWeatherList.unshift(updatedCity);
   updateUI(cityWeatherList);
 };
 
-updateUI(cityWeatherList);
+const deleteCityList = () => {
+ cityWeatherList.length = 0
+ updateUI(cityWeatherList)
+}
+
+updateUI();

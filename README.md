@@ -52,13 +52,8 @@ Chanda Abdul
 - [OpenWeather API](https://openweathermap.org/api) 
 
 ## To-do
-- [ ] circular reference issue??
 - [ ] search when "enter" key event
 - [ ] error alert for invalid city
-- [ ] add hidden class when UI is not populated
 - [ ] update css stylings
 
-## Future updates
 
-- [ ] Add function to clear entire city list
-- [ ] Add trash icon to delete city

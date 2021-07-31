@@ -1,3 +1,5 @@
+"use strict";
+
 class FetchWeather {
   async getWeather(input) {
     const apiKey = "b22dd2a636ebc4ce3bf4c971ba236900";
