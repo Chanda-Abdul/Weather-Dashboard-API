@@ -65,13 +65,23 @@ const saveCityToLocalStorage = (
     forecast: forecast
   };
 
-  cityWeatherList.unshift(cityWeather);
+  //prevent duplicate cities from being added to the cityWeatherList
+  let addCityToList = true;
 
-  cityWeatherList.splice(10);
+  for (let i = 0; i < cityWeatherList.length; i++) {
+    if (cityWeatherList[i].city === cityWeather.city) {
+      addCityToList = false;
+    }
+  }
 
-  localStorage.setItem("cityWeatherList", JSON.stringify(cityWeatherList));
-  window.location.assign("/");
+  if (addCityToList) {
+    cityWeatherList.unshift(cityWeather);
+    cityWeatherList.splice(10);
+    localStorage.setItem("cityWeatherList", JSON.stringify(cityWeatherList));
+    window.location.assign("/");
+  }
 };
+console.log(cityWeatherList);
 
 //add search button event listener
 const inputValue = document.querySelector(".form-control");

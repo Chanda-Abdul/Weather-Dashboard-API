@@ -33,7 +33,7 @@ GIVEN a weather dashboard with form inputs
 - [x] WHEN I view the UV index
   - [x] THEN I am presented with a color that indicates whether the conditions are 
     - favorable(A UV Index reading of 0 to 2 means low danger from the sun's UV rays for the average person), 
-    - moderate(A UV Index reading of 3 to 5 means moderate risk of harm from unprotected sun exposure.), 
+    - moderate(A UV Index reading of 3 to 5 means moderate risk of harm from unprotected sun exposure), 
     - or severe(A UV Index reading of 6 to 7 means high risk of harm from unprotected sun exposure. Protection against skin and eye damage is needed.)
 - [x] WHEN I view future weather conditions for that city
   - [x] THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
@@ -52,8 +52,9 @@ Chanda Abdul
 - [OpenWeather API](https://openweathermap.org/api) 
 
 ## To-do
-- [ ] Automatically Remove Duplicates from localStorage
 - [ ] circular reference issue??
+- [ ] search when "enter" key event
+- [ ] error alert for invalid city
 - [ ] update css stylings
 
 ## Future updates
