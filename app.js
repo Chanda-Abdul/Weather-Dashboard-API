@@ -95,6 +95,8 @@ submitButton.addEventListener("click", event => {
       let currentLatitude = data.city.coord.lat;
       let currentLongitude = data.city.coord.lon;
       let currentNameValue = data["city"]["name"];
+
+      //using the 0 index may cause problems here
       let currentDateValue = data["list"][0]["dt_txt"].slice(0, 10).split("-");
       let currentIconValue = data["list"][0]["weather"][0]["icon"];
       let currentTempValue = Math.round(data.list["0"].main.temp);
@@ -110,6 +112,7 @@ submitButton.addEventListener("click", event => {
       uv.getUV(currentLatitude, currentLongitude).then(data => {
         let currentUVValue = data.current.uvi;
         populateUI(
+          //destructure into an array or object
           currentNameValue,
           currentDateValue,
           currentIconValue,

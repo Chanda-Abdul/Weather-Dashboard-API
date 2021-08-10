@@ -102,7 +102,7 @@ const populateUIForecastRight = forecast => {
 };
 
 const months = [
-  null,
+  undefined,
   "January",
   "February",
   "March",
